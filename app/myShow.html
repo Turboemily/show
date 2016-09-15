@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>myShow</title>
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+</head>
+<body>
+<!-----------头部-------------->
+<div class="header" style="background-color: #e4366b">
+    <span style="position:static;"><a href="sort.html" style="padding: 2rem; display: block;width: 8%;"><-</a></span>
+    <span id="index_headline" style="  margin: -4.8rem auto;  width: 58%;position:static;">我的秀</span>
+    <!--<span><-</span>-->
+    <!--<span>购物车</span>-->
+    <!--<button style="padding: 7px 13px;"><a href="#"style="color: white;">去结算</a></button>-->
+</div>
+<!-----------注册内容-------------->
+<div class="content" style="background-color: white;height: 80%;">
+   <div class="show_container_up">
+       <div class="show_left"></div>
+       <div class="show_right">
+           <!--<p>昵称 ： 未知</p>-->
+           <!--<a href="login.html">登录</a>-->
+           <!--<a href="signIn.html">注册</a>-->
+
+       </div>
+
+   </div>
+   <div class="show_container_down" style="height:50%;">
+       <ul>
+           <li><a href="#">我的订单</a></li>
+           <li><a href="#">我的优惠券</a></li>
+           <li><a href="#">浏览记录</a></li>
+           <li><a href="#">我的收藏</a></li>
+       </ul>
+   </div>
+</div>
+<!-----------footer-------------->
+<div class="footer" style="background-color: #484852">
+
+    <ul>
+        <li>
+            <a href="index.html">
+                <img src="img/index_03.png" alt="">
+                <p>首页</p>
+            </a>
+        </li>
+        <li>
+            <a href="sort.html">
+                <img src="img/fenlei_05.png" alt="">
+                <p>分类</p>
+            </a>
+        </li>
+        <li>
+            <a href="shoppingCar.html">
+                <img src="img/shopcar_07.png" alt="">
+                <p>购物车</p>
+            </a>
+        </li>
+        <li class="active">
+            <a href="myShow.html">
+                <img src="img/me_09.png" alt="">
+                <p>我的秀</p>
+            </a>
+        </li>
+        <li>
+            <a href="more.html">
+                <img src="img/more_11.png" alt="">
+                <p>更多</p>
+            </a>
+        </li>
+    </ul>
+
+</div>
+</body>
+
+<script src="js/myValidate.js">
+
+</script>
+<script>
+    var userName = localStorage.userID;
+    console.log(localStorage.getItem('userID'))
+    $('#myName').text(localStorage.getItem('userID'));
+        $.ajax({
+            url:"http://datainfo.duapp.com/shopdata/getuser.php",
+            data: {userID:userName},
+            dataType: "jsonp",
+            success:function (data) {
+            console.log(data);
+                console.log(data[0].userimg_url);
+                var img = $("<img width='100%' height='100%' src="+data[0].userimg_url+"/>")
+                var p = $("<p>昵称 ： "+data[0].userID+"</p>");
+                var $button = $("<a style='float: right;background-color: #ccc;' href='login.html'>退出</a>");
+                $(".show_right").append($button);
+                $(".show_right").append(p);
+                $(".show_left").append(img);
+            }
+        })
+
+</script>
+</html>
+

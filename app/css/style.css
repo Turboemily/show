@@ -1,0 +1,347 @@
+
+/*************************signIn注册内容*/
+.content{
+   flex:8;
+}
+.content input{
+    border: 1px solid #c2c2c2;
+    margin-top: 2rem;
+}
+.content button{
+    width: 80%;
+    border: none;
+    margin: 2% 9%;
+    border-radius: 5%;
+    height: 3.5rem;
+    background-color: #e4366b;
+    margin-top: 3rem;
+}
+
+/*************************login登录内容*/
+.login{
+    width: 80%;
+    margin: 0 auto;
+}
+.login_right{
+    width:1.5rem;
+    height:1.5rem;
+    border:1px solid #acacac;
+    float: left;
+}
+
+.login span{
+    margin-left: 0.8rem;
+    margin-top:0.2rem;
+    font-size: 3rem;
+    color:#707070;
+}
+.login a{
+    text-decoration: underline;
+    margin-left: 1.8rem;
+    font-size: 3rem;
+    color: #9e9e9e;
+}
+.login_active{
+    background: url("../img/login_active_03.png")  no-repeat;
+    overflow: hidden;
+    background-size: 92% 92%;
+}
+
+/*************************index首页内容*/
+#index_headline{
+    display: block;
+    margin: -0.3rem auto;
+    width: 92%;
+    text-align: center;
+}
+.index_content_search{
+    background: #52525a;
+    height:7.5rem;
+    position: absolute;
+    width: 100%;
+}
+
+.index_content_search input{
+    height: 4rem;
+    width: 80%;
+    border-radius: 2rem;
+    margin: 1.5rem auto;
+    display: block;
+    background: url("../img/suosou_03.jpg") no-repeat;
+    background-position-x: 0rem;
+    background-position-y: 0.5rem;
+    background-color: white;
+    padding-left: 3.5rem;
+}
+.index_container{
+    /*overflow-y: scroll;*/
+    position: absolute;
+    top: 7rem;
+    background-color: antiquewhite;
+    /*height: 1000%;*/
+    width: 100%;
+    /*z-index: 0;*/
+}
+.index_content_banner{
+    clear: both;
+    width: 100%;
+    height:18.8rem;
+    background: skyblue;
+}
+.index_content_goods{
+    width: 100%;
+    height: 100%;
+    background-color: antiquewhite;
+}
+.index_content_goods_div{
+    width: 95%;
+    border-bottom: 2px solid #ccc;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+}
+.goods_right{
+    font-size: 3rem;
+    float: right;
+}
+.goods_right p{
+    /*必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。*/
+    display: -webkit-box;
+    /*必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。*/
+    -webkit-box-orient:vertical;
+    /*可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本 。*/
+    text-overflow: ellipsis;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    width: 100%;
+    overflow: hidden;
+    line-height: 150%;
+}
+.goods_right span:nth-of-type(1){
+    color: red;
+    font-size: 5rem;
+    position: absolute;
+}
+.goods_right span:nth-of-type(2){
+    position: absolute;
+}
+.goods_right span:nth-of-type(3){
+    position: absolute;
+    left:0.5rem;
+}
+.goods_right img{
+    position: absolute;
+    right:1.5rem;
+}
+/*************************sort内容*/
+.sort_container{
+    width:100%;
+    height: 4rem;
+    border-bottom: 1px solid #ccc;
+    position: absolute;
+    top: 8rem;
+}
+.sort_container img{
+    float: right;
+    margin-right: 1rem;
+    margin-top: 0.8rem;
+}
+.sort_content1,.sort_content3{
+
+    font-size: 5rem;
+    float: left;
+    margin: 0.6rem;
+}
+.sort_content3{
+    width: 100%;
+    display: none;
+    background: url("../img/8_06.png")  32rem 0.2rem  no-repeat;
+}
+.sort_content4{
+    width: 100%;
+    background: url("../img/8_03.png")  32rem 0.2rem  no-repeat;
+}
+/*//////shoppingCar*/
+.shoppingCar{
+    width: 80%;
+    height: 80%;
+    margin: 3rem auto;
+}
+.shoppingCar p {
+    font-size: 4rem;
+    text-align: center;
+}
+.shoppingCar img{
+    display: block;
+    margin: 1rem auto;
+}
+.shoppingCar a{
+    width: 100%;
+    display: block;
+    height: 4rem;
+    background: #e4366b;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 6rem;
+    border-radius: 1rem;
+}
+/*////我的秀////*/
+.show_container_up{
+    width: 88%;
+    height: 13rem;
+    /*background: #ccc;*/
+    margin: 0 auto;
+}
+.show_left{
+    width: 27%;
+    height: 64%;
+    background: red;
+    border-radius: 10%;
+    float: left;
+    margin-top: 2rem;
+    margin-left: 0%;
+    overflow: hidden;
+}
+.show_right{
+    width: 66%;
+    height: 9rem;
+    /*background: wheat;*/
+    float: right;
+    margin-right: 0rem;
+    margin-top: 2rem;
+}
+.show_right a{
+    display: block;
+    float: left;
+    width: 4rem;
+    height: 2.5rem;
+    text-align: center;
+    line-height: 2.5rem;
+    background: red;
+    border-radius: 10%;
+    margin: 1rem 1rem 0 0;
+}
+.show_right p{
+    margin-top: 1.5rem;
+    font-size: 4rem;
+}
+.show_container_down{
+    width: 88%;
+    margin: 2rem auto;
+}
+.show_container_down ul{
+    width:100%;
+    margin: 0 auto;
+    list-style: none;
+    border-top: 1px solid #9e9e9e;
+    border-left: 1px solid #9e9e9e;
+    border-right: 1px solid #9e9e9e;
+    border-radius: 3%;
+    height: 90%;
+}
+.show_container_down ul li{
+    height: 25%;
+    padding-left: 3%;
+    padding-top: 3%;
+    box-sizing: border-box;
+    font-size: 5rem;
+    border-bottom: 1px solid #9e9e9e;
+}
+.show_container_down ul li a{
+    color: #333;
+}
+.index_p{
+    position: absolute;
+    left: 13rem;
+    top: 31rem;
+}
+
+/*....shoppiingcar*/
+.tab input{
+    margin: 0% 3%;
+    width: 20%;
+    border-radius: 5%;
+    height: 2.5rem;
+    padding-left: 0.2rem;
+    font-size: 3rem;
+}
+.tab_p1 a{
+    color: black;
+}
+.tab_p2{
+    margin-top: 1rem;
+}
+.tab .price{
+    display: block;
+    margin-left: 3rem;
+}
+.tab_p3{
+    margin-top: 1.3rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    float: left;
+}
+.tab_div1{
+    margin-top: 1rem;
+    margin-right: 0.75rem;
+    float: right;
+}
+.tab_img1{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+#list{
+    width: 75%;
+    height: 204%;
+    border: 1px solid #ccc;
+    display: none;
+    position: absolute;
+    top: 74%;
+    left: 16%;
+    font-size: 3.5rem;
+    z-index: 100;
+    background-color: white;
+}
+#list a{
+    color: black;
+}
+.more_ul1,.more_ul2{
+    width: 82%;
+    margin: 2rem auto;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-radius: 2%;
+}
+.more_ul1{
+    height: 46%;
+}
+.more_ul2{
+    height: 23%;
+}
+.more_ul1 li{
+    height: 25%;
+}
+.more_ul2 li{
+    height: 50%;
+}
+.more_ul1 li,.more_ul2 li{
+    font-size: 5rem;
+    box-sizing: border-box;
+    padding-left: 3%;
+    padding-top: 3%;
+    border-bottom: 1px solid #ccc;
+}
+.content .more_btn{
+    /*width: 80%;*/
+    /*border: none;*/
+    /*margin: 2% 9%;*/
+    /*border-radius: 5%;*/
+    height: 4.5rem;
+    /*background-color: #e4366b;*/
+    margin-top: 1rem;
+    font-size: 5rem;
+}

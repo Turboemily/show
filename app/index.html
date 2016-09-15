@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper-3.2.7.min.css">
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+
+</head>
+<body>
+<!-----------头部-------------->
+<div class="header" style="background-color: #e4366b;position: fixed;top: 0;height: 6rem;">
+    <!--<span  style="display: none"><-</span>-->
+    <span id="index_headline"> ZXIU 走秀网</span>
+    <!--<button style="display: none">登录</button>-->
+</div>
+<!-----------首页内容-------------->
+<div class="content" style="background-color: white;position: relative;top: 6rem;overflow-y: scroll;">
+   <div class="index_content_search">
+       <form onsubmit="return false">
+           <input type="text" placeholder="请输入搜索内容" id="index_input">
+       </form>
+       <ul id="list">
+
+       </ul>
+   </div>
+    <div class="index_container" >
+        <div class="index_content_banner">
+            <div class="swiper-container" style="width: 100%;height: 100%">
+                <div class="swiper-wrapper">
+                    <!--<div class="swiper-slide"></div>-->
+                    <!--<div class="swiper-slide"></div>-->
+                    <!--<div class="swiper-slide"></div>-->
+                    <!--<div class="swiper-slide"></div>-->
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="index_content_goods">
+            <!--<div  class="index_content_goods_div">-->
+                <!--<div class="goods_left" style="border: 1px solid red; width:38%;height:100%;float:left;">-->
+                    <!--<img src="img/pic_07.png" alt="" style="width: 100%;height:100%">-->
+                <!--</div>-->
+                <!--<div class="goods_right" style="border: 1px solid blue;width:60%;height:100%;float: right;position: relative;">-->
+                    <!--<p>0元大抽奖 ! 走秀携手古尔莎为你开启,价值28880元的土耳其走秀携手古尔莎为你开启,价值28880元的土耳其</p>-->
+                    <!--<span>&yen; 0</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>28880</span><br>-->
+                    <!--<span>0折</span>-->
+                    <!--<img src="img/shoppingcar_10.png" >-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+
+
+</div>
+</div>
+<!-----------footer-------------->
+<div class="footer" style="background-color: #484852">
+
+    <ul>
+        <li class="active">
+            <a href="index.html">
+                <img src="img/index_03.png" alt="">
+                <p>首页</p>
+            </a>
+        </li>
+        <li>
+            <a href="sort.html">
+                <img src="img/fenlei_05.png" alt="">
+                <p>分类</p>
+            </a>
+        </li>
+        <li>
+            <a href="shoppingCar.html">
+                <img src="img/shopcar_07.png" alt="">
+                <p>购物车</p>
+            </a>
+        </li>
+        <li>
+            <a href="myShow.html">
+                <img src="img/me_09.png" alt="">
+                <p>我的秀</p>
+            </a>
+        </li>
+        <li>
+            <a href="more.html">
+                <img src="img/more_11.png" alt="">
+                <p>更多</p>
+            </a>
+        </li>
+    </ul>
+
+</div>
+<script src="js/jquery-2.1.0.js"></script>
+<script src="js/swiper-3.2.7.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.0.0.min.js" ></script>
+<script src="js/baidu_search.js"></script>
+<script src="js/banner.js"></script>
+<script >
+    var onkeydown = function (event) {
+        if(event.keyCode == 13){
+                $.ajax({
+                    url:"http://datainfo.duapp.com/shopdata/selectGoodes.php",
+                    data:{selectText:$("#index_input").val()},
+                    dataType:"jsonp",
+                    success:function (data) {
+                        console.log(data);
+                        $('.index_content_goods').empty();
+                        $.each(data, function (i) {
+                            var img = data[i].goodsListImg;
+                            var price = JSON.parse(data[i].price);
+                            var discount = JSON.parse(data[i].discount);
+
+                            var index_content_goods_div=("<div class='index_content_goods_div'><div class='goods_left' style='width:38%;height:100%;float:left;'><img src='"+img+"'  style='width: 100%;height:100%;'></div><div class='goods_right' style='width:60%;height:100%;float: right;position: relative;'><p>"+(data[i].goodsName)+"</p><span>&yen;"+price+"</span><span class='line_through' style='padding-left:2.5rem;'>"+oldPrice(price,discount)+"</span><br><span>"+discount+"折</span><img src='img/shoppingcar_10.png'></div></div>");
+                            $('.index_content_goods').append(index_content_goods_div);
+                        });
+                        if(data == 0){
+                            $('.index_content_goods').html("找不到该信息哦!");
+                        }
+                    }
+                });
+        }
+        function oldPrice(price, discount) {
+            var oldprice;
+            if (discount == 0) {
+                oldprice = price;
+            } else {
+                oldprice = Math.floor(price / (discount / 10));
+            }
+            return oldprice;
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
+

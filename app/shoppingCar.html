@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>shoppingCar</title>
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/base.js"></script>
+</head>
+<body>
+<!-----------头部-------------->
+<div class="header" style="background-color: #e4366b;height: 6rem; position: absolute;">
+    <span style="position:static;"><a href="sort.html" style="padding: 2rem; display: block;width: 8%;"><-</a></span>
+    <span id="index_headline" style="  margin: -4.8rem auto;  width: 58%;position:static;">购物车</span>
+    <!--<span><-</span>-->
+    <!--<span>购物车</span>-->
+    <button style="padding: 7px 13px;"><a href="#" style="color: white;">去结算</a></button>
+</div>
+<!-----------注册内容-------------->
+<div class="content" style="background-color: white">
+    <div class="shoppingCar">
+        <p>您的购物车空空~~</p>
+        <img src="img/10_03.png" alt="">
+        <a href="index.html">去逛逛</a>
+    </div>
+
+</div>
+<!-----------footer-------------->
+<div class="footer" style="background-color: #484852">
+
+    <ul>
+        <li>
+            <a href="index.html">
+                <img src="img/index_03.png" alt="">
+                <p>首页</p>
+            </a>
+        </li>
+        <li>
+            <a href="sort.html">
+                <img src="img/fenlei_05.png" alt="">
+                <p>分类</p>
+            </a>
+        </li>
+        <li class="active">
+            <a href="shoppingCar.html">
+                <img src="img/shopcar_07.png" alt="">
+                <p>购物车</p>
+            </a>
+        </li>
+        <li>
+            <a href="myShow.html">
+                <img src="img/me_09.png" alt="">
+                <p>我的秀</p>
+            </a>
+        </li>
+        <li>
+            <a href="more.html">
+                <img src="img/more_11.png" alt="">
+                <p>更多</p>
+            </a>
+        </li>
+    </ul>
+
+</div>
+</body>
+
+<script src="js/myValidate.js"></script>
+<script src="js/shoppingCar.js"></script>
+
+
+<!--<div style="height: 4rem; background-color: #333;color: white;">-->
+<!--<span style='display: block; width: 30%; float: left;font-size: 3.5rem; margin-top: 1rem; margin-left: 0.3rem;'>商品数量：1</span>-->
+<!--<span style='display: block;width: 67%;float: right;font-size: 3.5rem;margin-top: 1rem;'>应付总额（不含运费）: &yen;199</span>-->
+<!--</div>-->
+
+
+<script>
+    var userName = localStorage.userID;
+    var goodsID = localStorage.goodsID;
+    $.ajax({
+        url: "http://datainfo.duapp.com/shopdata/getCar.php",
+        data: {userID: userName},
+        dataType: "jsonp",
+        success: function (data) {
+            console.log(data);
+
+            $(".shoppingCar").empty();
+            var $div = $("<div style='height: 4rem; background-color: #333;color: white;'></div>");
+
+            var $span1 = $("<span style='display: block; width: 30%; float: left;font-size: 3.5rem; margin-top: 1rem; margin-left: 0.3rem;'>商品数量：" + data.length + "</span>")
+
+            var $span2 = $("<span style='display: block;width: 67%;float: right;font-size: 3.5rem;margin-top: 1rem;'>应付总额（不含运费）: &yen;199</span>")
+            $div.append($span1);
+            $div.append($span2);
+            $(".content").append($div);
+
+            $.each(data, function (i) {
+                var $tab = $("<div class='tab'></div>");
+                var $index_content_goods_div = $("<div  class='index_content_goods_div'></div>");
+                var $goods_left = $("<div class='goods_left' style=' width:38%;height:100%;float:left;'></div>")
+                var $img1 = $("<img src='" + data[i].goodsListImg + "' style='width: 100%;height:100%'>");
+                $goods_left.append($img1);
+                $index_content_goods_div.append($goods_left);
+                $tab.append($index_content_goods_div);
+                var $goods_right = $("<div class='goods_right'  style='width:60%;height:100%;float: right;position: relative;'>");
+                var $p1 = $("<p style='width: 80%;'>" + data[i].goodsName + "</p>");
+                var $p2 = $("<p class='tab_p2'>单价:&yen;" + data[i].price + " </p>");
+                var $p3 = $("<p class='tab_p3' style='width: 25%;'>数量：</p>");
+                var $img2 = $("<img src='img/rubbish.png' class='tab_img1' style='width: 10%'>");
+                var $tab_div1 = $("<div class='tab_div1' style='width: 70%;'></div>");
+                var $input1 = $("<input class='min' type='button' value='-' />");
+                var $input2 = $("<input class='text_box' type='text' value='1' />");
+                var $input3 = $("<input class='add' type='button' value='+' />");
+                $tab_div1.append($input1);
+                $tab_div1.append($input2);
+                $tab_div1.append($input3);
+                $goods_right.append($p1);
+                $goods_right.append($p2);
+                $goods_right.append($p3);
+                $goods_right.append($img2);
+                $goods_right.append($tab_div1);
+                $index_content_goods_div.append($goods_right);
+                $(".content").append($tab);
+                $input1.bind("click", function () {
+                    //console.log(i);
+                    var number = parseInt($input2.val()) > 0 ? parseInt($input2.val()) - 1 : 0;
+
+                    updataCar({
+                        userID: userName, goodsID: data[i].goodsID, number: number, callback: function (data) {
+                            if (number == 0) {
+                                $tab.remove();
+                                $span1 = $("<span style='display: block; width: 30%; float: left;font-size: 3.5rem; margin-top: 1rem; margin-left: 0.3rem;'>商品数量：" + data.length + "</span>")
+
+                            } else {
+                                $input2.val(number);
+                            }
+
+                        }
+                    });
+                });
+                $input3.bind("click", function () {
+                    // console.log($(".text_box").val());
+                    var number = parseInt($input2.val()) + 1;
+                    updataCar({
+                        userID: userName, goodsID: data[i].goodsID, number: number, callback: function () {
+//                        console.log(number);
+                            $input2.val(number);
+
+                        }
+                    });
+                });
+                $img2.bind("click", function () {
+
+                    var number = 0;
+                    $tab.remove();
+                    updataCar({
+                        userID: userName, goodsID: data[i].goodsID, number: number, callback: function (data) {
+                            $span1 = $("<span style='display: block; width: 30%; float: left;font-size: 3.5rem; margin-top: 1rem; margin-left: 0.3rem;'>商品数量：" + data.length + "</span>")
+                        }
+                    });
+                })
+            });
+
+        }
+    })
+</script>
+</html>

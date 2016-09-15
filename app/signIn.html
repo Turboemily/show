@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>signIn</title>
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+</head>
+<body>
+   <!-----------头部-------------->
+    <div class="header" style="background-color: #e4366b">
+        <span><a href="myShow.html"><-</a></span>
+        <span>注册</span>
+        <button><a href="login.html" style="color: white;">登录</a></button>
+    </div>
+   <!-----------注册内容-------------->
+    <div class="content" style="background-color: white">
+        <form method="post" class="cmxform" id="form1"  action="">
+
+            <input type="text" name="user" id="user" placeholder="账号" required minlength="3"><br>
+            <label for="user"></label>
+
+            <input type="password" id="password" maxlength="12" name="password" required minlength="5"  placeholder="密码"><br>
+            <label for="password"></label>
+
+            <input type="password" id="passwordAgain" name="passwordAgain" placeholder="重复密码" required ><br>
+            <label for="passwordAgain"></label>
+
+            <button class="submit" type="submit">同意服务协议并注册</button>
+
+        </form>
+
+    </div>
+   <!-----------footer-------------->
+    <div class="footer" style="background-color: #484852">
+
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="img/index_03.png" alt="">
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a href="sort.html">
+                    <img src="img/fenlei_05.png" alt="">
+                    <p>分类</p>
+                </a>
+            </li>
+            <li>
+                <a href="shoppingCar.html">
+                    <img src="img/shopcar_07.png" alt="">
+                    <p>购物车</p>
+                </a>
+            </li>
+            <li class="active">
+                <a href="myShow.html">
+                    <img src="img/me_09.png" alt="">
+                    <p>我的秀</p>
+                </a>
+            </li>
+            <li>
+                <a href="more.html">
+                    <img src="img/more_11.png" alt="">
+                    <p>更多</p>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</body>
+
+<script src="js/myValidate.js">
+</script>
+</html>
